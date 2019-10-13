@@ -14,6 +14,7 @@ server.use(cookieParser())
 const dbServerUrl = "mongodb://localhost:3002/auth"
 mongoose.connect(process.env.MONGOLAB_URI||dbServerUrl,{ useNewUrlParser: true ,useUnifiedTopology: true }, (err) => {
 
+    console.log(process.env.MONGOLAB_URI)
         if(err)
             console.log('Connection Error !! Failed to connect to the DB...')
         
