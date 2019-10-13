@@ -4,7 +4,6 @@ const server = require('express')();
 const mongoose = require('mongoose');
 const body_parser = require ('body-parser');
 const {User} = require('./models/users');
-const bcrypt = require('bcrypt');
 const cookieParser = require('cookie-parser');
 const {authMiddleWare} = require('../server/middleware/auth');
 
@@ -69,7 +68,7 @@ server.post('/user/login', (req,res) => {
                     document.generateToken((err,userRecord) => {
                         if(err) return res.status(400).send('Error in Authentication');
                         
-                        res.cookie('auth_token',userRecord.token).send('User authorised here!!');
+                        res.cookie('auth_token',userRecord.token).send('User authorised!!');
 
                     })
 
@@ -92,6 +91,6 @@ const port = process.env.PORT || 3001;
 
 server.listen(port, () => {
 
-    console.log('Server running on port 3001.....')
+    console.log(`Server running on port ${port}.....`)
 
 })

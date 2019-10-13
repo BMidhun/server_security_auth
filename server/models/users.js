@@ -91,7 +91,7 @@ userSchema.statics.compareToken = function(tokenFromClient,callback){
         jwt.verify(tokenFromClient,server_secret_key,(error,decodedToken) => {
 
                 // if(error)
-                //         throw error;
+                        // throw error;
 
                 user.findOne({email:decodedToken, token:tokenFromClient},(err,userRecord) => {
 
