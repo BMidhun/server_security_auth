@@ -10,8 +10,9 @@ const {authMiddleWare} = require('../server/middleware/auth');
 server.use(body_parser.json())
 server.use(cookieParser())
 
+
 const dbServerUrl = "mongodb://localhost:3002/auth"
-mongoose.connect(dbServerUrl,{ useNewUrlParser: true ,useUnifiedTopology: true }, (err) => {
+mongoose.connect(process.env.MONGOLAB_URI||dbServerUrl,{ useNewUrlParser: true ,useUnifiedTopology: true }, (err) => {
 
         if(err)
             console.log('Connection Error !! Failed to connect to the DB...')
