@@ -26,6 +26,11 @@ mongoose.connect(process.env.MONGOLAB_URI||dbServerUrl,{ useNewUrlParser: true ,
 
 //--------------------------------------------------
 
+server.get('/',(req,res)=> {
+
+     res.send(' <html> <body> Hello Welcome to Server <ol> <li> POST : /user </li>  <li> POST : /user/login  </li>  <li> GET : /user/profile </li> </ol> </body>  </html>')
+
+})
 
 server.post('/user',(req,res) => {
 
