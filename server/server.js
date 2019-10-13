@@ -11,10 +11,10 @@ server.use(body_parser.json())
 server.use(cookieParser())
 
 
-const dbServerUrl = "mongodb://localhost:3002/auth"
-mongoose.connect(process.env.MONGOLAB_URI||dbServerUrl,{ useNewUrlParser: true ,useUnifiedTopology: true }, (err) => {
+// const dbServerUrl = "mongodb://localhost:3002/auth"
+const dbServerUrl = "mongodb+srv://midhun:nuhdiM%40007@cluster0-dhzgj.mongodb.net/test?retryWrites=true&w=majority"
+mongoose.connect(dbServerUrl,{ useNewUrlParser: true ,useUnifiedTopology: true }, (err) => {
 
-    console.log(process.env.MONGOLAB_URI)
         if(err)
             console.log('Connection Error !! Failed to connect to the DB...')
         
